@@ -1,0 +1,23 @@
+---
+description: Basic and Detail design docs under .notebook/06_design/
+globs: .notebook/06_design/**
+alwaysApply: false
+---
+
+# Design documents
+
+Follow [.notebook/06_design/README.md](../../.notebook/06_design/README.md).
+
+## Basic vs Detail
+
+| Type | Folder | Skills |
+|------|--------|--------|
+| Basic | `00_project/`, `01_functions/` | `basic-design` |
+| Detail | `02_screens/`, `03_objects/`, `04_integrations/`, `05_batches/`, `06_logic/` | `detail-design` |
+
+## Rules
+
+- Copy from `_*.template.md`; remove `_` prefix in new filenames
+- Link design files from `backlogs/task-{id}/README.md` **Design** section
+- Do not duplicate full acceptance criteria — reference backlog task
+- Comments in code: English. Design docs for PM/client: project language (often Vietnamese)

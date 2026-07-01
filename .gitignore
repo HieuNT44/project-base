@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+vendor/
+.pnp
+.pnp.js
+
+# Build
+dist/
+build/
+out/
+.next/
+coverage/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+Thumbs.db
+
+# Agent vendor clones (optional local — keep README tracked)
+.agent/vendor/agent-skills/
+.agent/vendor/superpowers/
+!.agent/vendor/
+!.agent/vendor/README.md
