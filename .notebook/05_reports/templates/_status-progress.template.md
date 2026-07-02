@@ -12,15 +12,15 @@
 
 _(Link mỗi mục tới backlog task + delivery report nếu có.)_
 
-- [task-{id}](../../backlogs/task-{id}/README.md) — {tên task} — done
+- [task-{id}](../../.backlogs/{id}/ready/{id}.md) — {tên task} — done
 
 ## Đang thực hiện
 
-- [task-{id}](../../backlogs/task-{id}/README.md) — {tên task} — in-progress — [Điền % hoặc trạng thái]
+- [task-{id}](../../.backlogs/{id}/ready/{id}.md) — {tên task} — in-progress — [Điền % hoặc trạng thái]
 
 ## Kế hoạch kỳ tới
 
-- [task-{id}](../../backlogs/task-{id}/README.md) — {tên task} — planned / ready
+- [task-{id}](../../.backlogs/{id}/ready/{id}.md) — {tên task} — planned / ready
 
 ## Vướng mắc / Rủi ro
 

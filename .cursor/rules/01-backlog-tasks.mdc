@@ -1,12 +1,12 @@
 ---
-description: Backlog task template, INVEST, and task types when editing backlogs/
-globs: backlogs/**
+description: Backlog task template, INVEST, and task types when editing .backlogs/
+globs: .backlogs/**
 alwaysApply: false
 ---
 
 # Backlog tasks
 
-Use [backlogs/_task.template.md](../../backlogs/_task.template.md) and [INVEST](../../.notebook/00_references/invest.md).
+Use [.backlogs/_task.template.md](../../.backlogs/_task.template.md) and [INVEST](../../.notebook/00_references/invest.md).
 
 ## Task types
 
@@ -14,16 +14,17 @@ Use [backlogs/_task.template.md](../../backlogs/_task.template.md) and [INVEST](
 
 ## Status gates
 
-- `draft` — after `analyze-intake-to-task`
-- `ready` — INVEST complete, AC + estimation + test plan, human approved
-- `in-progress` — after design links (M+) or human waiver for XS/S
-- `done` — verification evidence + delivery report when handover required
+- `draft` — after `create-task-draft` → `{id}/draft/{id}.md`
+- `ready` — INVEST complete → `{id}/ready/{id}.md`
+- Design — `{id}/design/{id}.md` trước M+ code
+- `in-progress` — develop → review → test → deploy (track on **ready** file)
+- `done` — verification evidence + deploy (when applicable) + delivery report when handover required
 
 ## Skills
 
-- New draft from intake: `analyze-intake-to-task`
+- New draft from intake: `create-task-draft`
 - Harden / split: `planning-and-task-breakdown`
 - Catalog alignment: `spec-driven-development`
-- Design: `basic-design`, `detail-design`
+- Design: `design-workflow`
 
-See [backlogs/README.md](../../backlogs/README.md).
+See [.backlogs/README.md](../../.backlogs/README.md).

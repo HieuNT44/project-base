@@ -1,7 +1,7 @@
 # Business requirements
 
 Stable **business** context: why the project exists, for whom, and within what scope.  
-Does not list features (see [function-list](../02_function-list/)), NFRs (see [non-functional-requirements](../03_non-functional-requirements/)), or tasks (see [backlog](../backlogs/)).
+Does not list features (see [function-list](../02_function-list/)), NFRs (see [non-functional-requirements](../03_non-functional-requirements/)), or tasks (see [backlog](../.backlogs/)).
 
 ## Files
 
@@ -42,7 +42,7 @@ Large projects: keep sections 1–6 in `overview.md`; move sections 7–11 to se
 
 ## Analyze checklist
 
-When processing a new request ([workflow](../workflow.md)):
+When processing a new request ([.workflow-sldc/01_WORKFLOW.md](../../.workflow-sldc/01_WORKFLOW.md)):
 
 - [ ] Request fits **scope IN**
 - [ ] Request is not listed in **scope OUT**

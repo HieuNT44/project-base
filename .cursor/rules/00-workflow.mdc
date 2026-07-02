@@ -1,15 +1,15 @@
 ---
-description: Project workflow — define, plan, design, develop, report
+description: Project workflow — define, plan, design, develop, review, test, deploy, report
 alwaysApply: true
 ---
 
 # Workflow
 
-Read [.notebook/README.md](../../.notebook/README.md) and [.notebook/workflow.md](../../.notebook/workflow.md) before plan, design, or backlog work.
+Read [.notebook/README.md](../../.notebook/README.md) and [.workflow-sldc/01_WORKFLOW.md](../../.workflow-sldc/01_WORKFLOW.md) before plan, design, or backlog work.
 
 ## Folder order
 
-`00_references` → `01` → `02` → `03` → `backlogs/` (ready) → `06_design` → code → `05_reports`
+`00_references` → `01` → `02` → `03` → `04_wbs` → `.backlogs/{id}/` (draft → ready → design) → `06_design` → code → `05_reports`
 
 Do not store raw intake in the repo.
 
@@ -21,24 +21,23 @@ Invoke matching skills from `.cursor/skills/`:
 |-----------|-------|
 | Intent unclear (who/why/success) | `interview-me` |
 | Many options / MVP | `idea-refine` |
-| Raw intake → one draft task | `analyze-intake-to-task` |
+| Raw intake → one draft task | `create-task-draft` |
 | Catalog / scope impact (01–03) | `spec-driven-development` |
 | Split tasks, INVEST, status `ready` | `planning-and-task-breakdown` |
-| Basic design (M+ scope) | `basic-design` |
-| Detail design (before develop) | `detail-design` |
+| Design (task ready, before develop) | `design-workflow` |
 | Task done → PM/client report | `report-writer` |
 
 ## Pipeline
 
 ```
-INTAKE → define → plan → ready → design → develop → test → report
+INTAKE → define → plan → ready → design → develop → review → test → deploy → report
 ```
 
 Do not set task status `ready` without INVEST and human approval.  
-Do not implement M+ work without design links in task **Design** section.
+Do not implement M+ work without `.backlogs/{id}/design/{id}.md`.
 
 ## Source paths
 
 - Skills: [.cursor/skills/README.md](../skills/README.md)
-- Backlog: [backlogs/README.md](../../backlogs/README.md)
+- Backlog: [.backlogs/README.md](../../.backlogs/README.md)
 - Design: [.notebook/06_design/README.md](../../.notebook/06_design/README.md)

@@ -2,4 +2,4 @@
 
 UI application — **TBD per project**.
 
-Define stack in [.notebook/06_design/00_project/architecture-frontend.md](../.notebook/06_design/00_project/_architecture-frontend.template.md) when the project starts.
+Define stack in [.notebook/06_design/basic-design/architecture-fe/frontend-architecture.md](../.notebook/06_design/basic-design/architecture-fe/_frontend-architecture.template.md) when the project starts.

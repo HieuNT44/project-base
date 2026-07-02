@@ -1,6 +1,6 @@
 ---
 name: spec-driven-development
-description: Creates specs before coding using the notebook layout. Use when starting a project, feature, or significant change. Analyze against notebook catalogs (01–03), update them if needed, then hand off to planning-and-task-breakdown for backlogs tasks. Use when requirements need structure before implementation.
+description: Creates specs before coding using the notebook layout. Use when starting a project, feature, or significant change. Analyze against notebook catalogs (01–03), update them if needed, then hand off to planning-and-task-breakdown for `.backlogs` tasks. Use when requirements need structure before implementation.
 ---
 
 # Spec-Driven Development (notebook)
@@ -24,14 +24,14 @@ SPECIFY ──→ PLAN (catalogs) ──→ TASKS ──→ IMPLEMENT
    ▼              ▼                ▼            ▼
  Human         Human         planning-and-   Develop
  review        review        task-breakdown  (later)
-                               → backlogs
+                               → .backlogs
 ```
 
 Do not advance until the human validates the current phase.
 
 ## Before you start
 
-1. Read [.notebook/README.md](../../.notebook/README.md) and [.notebook/workflow.md](../../.notebook/workflow.md).
+1. Read [.notebook/README.md](../../.notebook/README.md) and [01_WORKFLOW.md](../../.workflow-sldc/01_WORKFLOW.md).
 2. Check [00_references/invest.md](../../.notebook/00_references/invest.md) and [definition-of-done.md](../../.notebook/00_references/definition-of-done.md).
 3. Do **not** persist raw intake in the repo.
 
@@ -76,7 +76,7 @@ SUCCESS CRITERIA (draft):
 | New or changed NFR | Update `03_non-functional-requirements/` | [catalog.template.md](../../.notebook/03_non-functional-requirements/catalog.template.md) |
 | One-off, no catalog change | Note in handoff only — go to Phase 3 | — |
 
-Most requests only need **backlogs** tasks, not catalog changes.
+Most requests only need **`.backlogs`** tasks, not catalog changes.
 
 **Human gate:** Stakeholder confirms scope, success criteria, and catalog updates (if any).
 
@@ -105,19 +105,19 @@ For dependency graphs and vertical slicing mechanics, defer to [planning-and-tas
 
 ## Phase 3 — TASKS (Handoff)
 
-If no task exists yet, run **[analyze-intake-to-task](./analyze-intake-to-task/SKILL.md)** first (one `draft` task).
+If no task exists yet, run **[create-task-draft](./create-task-draft/SKILL.md)** first (one `draft` task).
 
 Then invoke **[planning-and-task-breakdown](./planning-and-task-breakdown/SKILL.md)** when hardening or splitting is needed.
 
 It creates or updates:
 
-- `backlogs/task-{id}/README.md` from [_task.template.md](../../backlogs/_task.template.md)
-- `subtask-{id}_{slug}.md` when scope is L+
+- `.backlogs/{id}/draft/{id}.md` (Define) or `.backlogs/{id}/ready/{id}.md` (Plan) from [_task.template.md](../../.backlogs/_task.template.md)
+- `{id}_{slug}.md` when scope is L+
 - **Backlog** links in `02_function-list` when applicable
 
 Each task must satisfy **INVEST** and include: type, value, AC, estimation, test plan (outline).
 
-**Human gate:** Tasks at status `ready` — see [workflow Step 5](../../.notebook/workflow.md).
+**Human gate:** Tasks at status `ready` — see [03_WORKFLOW_PLAN.md](../../.workflow-sldc/03_WORKFLOW_PLAN.md).
 
 ---
 
@@ -125,9 +125,8 @@ Each task must satisfy **INVEST** and include: type, value, AC, estimation, test
 
 Out of scope for this skill. After `ready`:
 
-- Fill Design / Implementation in task files
-- Use `.agent/vendor/agent-skills/skills/incremental-implementation`, `test-driven-development` as needed
-- Verification: `.agent/vendor/superpowers/skills/verification-before-completion`
+- Fill Design file (`{id}/design/{id}.md`) then Implementation on **ready** task
+- Use [incremental-implementation](../incremental-implementation/SKILL.md), [test-driven-development](../test-driven-development/SKILL.md) as needed
 - Delivery: `.cursor/skills/report-writer` → `.notebook/05_reports/`
 
 ---
@@ -147,7 +146,7 @@ Out of scope for this skill. After `ready`:
 
 ## Red flags
 
-- Code before `backlogs` task with AC exists
+- Code before `.backlogs` task with AC exists
 - Catalog and backlog contradict each other
 - Skipping human gate at SPECIFY or TASKS
 
@@ -156,5 +155,5 @@ Out of scope for this skill. After `ready`:
 - [ ] Request analyzed against 01–03
 - [ ] Assumptions surfaced and confirmed
 - [ ] Catalog updates reviewed (if any)
-- [ ] `backlogs` tasks created via planning-and-task-breakdown
+- [ ] `.backlogs` tasks created via planning-and-task-breakdown
 - [ ] INVEST satisfied; status `ready` approved

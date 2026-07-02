@@ -1,6 +1,6 @@
 # Reports
 
-Structured reports for **PM** and **clients (KH)**, written from the **dev** perspective. Reports **derive** from [backlogs](../../backlogs/) tasks — do not duplicate full specs; summarize outcomes, evidence, and risks in business-friendly language.
+Structured reports for **PM** and **clients (KH)**, written from the **dev** perspective. Reports **derive** from [.backlogs](../../.backlogs/) tasks — do not duplicate full specs; summarize outcomes, evidence, and risks in business-friendly language.
 
 ## Structure
 
@@ -44,7 +44,7 @@ One delivery file can serve both audiences using the template sections. Create s
 ## Workflow
 
 ```
-backlog task (spec)  →  develop  →  testing (evidence)  →  report (delivery)  →  PM / client
+backlog task (spec)  →  develop  →  review  →  testing (evidence)  →  deploy  →  report (delivery)  →  PM / client
 ```
 
 1. Complete task spec: AC, UAT / verification evidence, status = `done`.
@@ -65,6 +65,6 @@ backlog task (spec)  →  develop  →  testing (evidence)  →  report (deliver
 
 Use [report-writer](../../.cursor/skills/report-writer/SKILL.md) when generating reports from task specs or raw notes.
 
-## Link from backlogs
+## Link from .backlogs
 
-Each [task template](../../backlogs/_task.template.md) has a **Reports** table. Keep links bidirectional: task → report, report → task.
+Each [task template](../../.backlogs/_task.template.md) has a **Reports** table. Keep links bidirectional: task → report, report → task.

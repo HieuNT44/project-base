@@ -12,12 +12,12 @@ Follow [.notebook/06_design/README.md](../../.notebook/06_design/README.md).
 
 | Type | Folder | Skills |
 |------|--------|--------|
-| Basic | `00_project/`, `01_functions/` | `basic-design` |
-| Detail | `02_screens/`, `03_objects/`, `04_integrations/`, `05_batches/`, `06_logic/` | `detail-design` |
+| Basic | `basic-design/` | `design-workflow` |
+| Detail | `detail-design/` | `design-workflow` |
 
 ## Rules
 
-- Copy from `_*.template.md`; remove `_` prefix in new filenames
-- Link design files from `backlogs/task-{id}/README.md` **Design** section
+- Copy từ `_*.template.md` trong `basic-design/`; bỏ prefix `_` khi tạo bản chính thức
+- Link design files từ `.backlogs/{id}/design/{id}.md` mục **Artifacts**
 - Do not duplicate full acceptance criteria — reference backlog task
 - Comments in code: English. Design docs for PM/client: project language (often Vietnamese)

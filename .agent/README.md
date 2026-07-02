@@ -18,5 +18,5 @@ Develop-phase skills and references — separate from `.cursor/` project skills.
 
 ## Related
 
-- [AGENTS.md](../AGENTS.md)
+- [WORKFLOW.md](../WORKFLOW.md) · [.workflow-sldc/01_WORKFLOW.md](../.workflow-sldc/01_WORKFLOW.md)
 - [.cursor/skills/README.md](../.cursor/skills/README.md)

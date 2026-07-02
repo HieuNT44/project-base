@@ -1,6 +1,12 @@
-# Vendor skills (optional)
+# Develop-phase skills
 
-Clone upstream libraries when the project stack is defined:
+Develop / review / test skills live in [`.cursor/skills/`](../../.cursor/skills/README.md) — see **Develop & quality** section.
+
+Examples: `test-driven-development`, `incremental-implementation`, `debugging-and-error-recovery`, `code-review-and-quality`.
+
+## Optional upstream clones
+
+For syncing from external libraries (optional):
 
 ```bash
 # From repo root — examples
@@ -8,18 +14,4 @@ git submodule add https://github.com/your-org/agent-skills .agent/vendor/agent-s
 git submodule add https://github.com/your-org/superpowers .agent/vendor/superpowers
 ```
 
-Or copy from an existing monorepo path.
-
-## Suggested develop-phase skills
-
-| Skill | Source | Use when |
-|-------|--------|----------|
-| `test-driven-development` | agent-skills | Code changes with tests |
-| `incremental-implementation` | agent-skills | Multi-step features |
-| `verification-before-completion` | superpowers | Before marking task `done` |
-| `code-review-and-quality` | agent-skills | Pre-merge review |
-| `debugging-and-error-recovery` | agent-skills | Bugs |
-
-Paths after clone: `.agent/vendor/agent-skills/skills/{name}/SKILL.md`
-
-Do not duplicate vendor skills into `.cursor/skills/` — reference them from backlog **Implementation** section.
+After clone, compare upstream with `.cursor/skills/` and merge improvements manually — do not maintain two active copies.

@@ -180,7 +180,7 @@ Two questions in, the agent has discovered the actual ask isn't "a dashboard." I
 ## Interaction with Other Skills
 
 - **`idea-refine`**: downstream. If the confirmed intent is "I want X but I don't know how to scope it," hand off to `idea-refine` to generate variations against the now-explicit intent.
-- Hand off to [analyze-intake-to-task](./analyze-intake-to-task/SKILL.md) or [spec-driven-development](./spec-driven-development/SKILL.md) when intent is concrete.
+- Hand off to [create-task-draft](./create-task-draft/SKILL.md) or [spec-driven-development](./spec-driven-development/SKILL.md) when intent is concrete.
 - **`doubt-driven-development`**: opposite end of the timeline. Interview-me is pre-decision intent extraction; doubt-driven is post-decision artifact review. Both catch divergence, but at different moments.
 - **`source-driven-development`**: orthogonal. Interview-me clarifies what the user wants; SDD verifies framework facts. They don't compete.
 

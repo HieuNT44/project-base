@@ -15,11 +15,11 @@ Mục tiêu đã đề ra ban đầu.
 
 ## Việc đã hoàn thành
 
-- [task-{id}](../../backlogs/task-{id}/README.md) — {tên task}
+- [task-{id}](../../.backlogs/{id}/ready/{id}.md) — {tên task}
 
 ## Việc chưa hoàn thành / chuyển sprint sau
 
-- [task-{id}](../../backlogs/task-{id}/README.md) — {lý do}
+- [task-{id}](../../.backlogs/{id}/ready/{id}.md) — {lý do}
 
 ## Retrospective
 

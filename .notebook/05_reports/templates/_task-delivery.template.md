@@ -1,6 +1,6 @@
 # Bàn giao task — {Task title}
 
-**Task:** [task-{id}](../../backlogs/task-{id}/README.md)  
+**Task:** [task-{id}](../../.backlogs/{id}/ready/{id}.md)  
 **Type:** feature | bugfix | refactor | deploy  
 **Audience:** PM | client | both  
 **Ngày báo cáo:** YYYY-MM-DD  

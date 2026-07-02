@@ -1,6 +1,6 @@
 # Báo cáo sự cố — {Tên / mô tả ngắn}
 
-**Task liên quan:** [task-{id}](../../backlogs/task-{id}/README.md) _(bugfix — hoặc `—` nếu không có task)_  
+**Task liên quan:** [task-{id}](../../.backlogs/{id}/ready/{id}.md) _(bugfix — hoặc `—` nếu không có task)_  
 **Mức độ nghiêm trọng:** Critical | High | Medium | Low  
 **Thời gian xảy ra:** YYYY-MM-DD HH:MM – HH:MM  
 **Thời gian phát hiện:** YYYY-MM-DD HH:MM  

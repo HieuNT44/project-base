@@ -21,7 +21,7 @@ Tổng hợp thông tin thô (ghi chú, backlog task, log lỗi…) thành báo 
 
 1. [.notebook/05_reports/README.md](../../.notebook/05_reports/README.md) — types, audience, workflow
 2. Template trong [.notebook/05_reports/templates/](../../.notebook/05_reports/templates/)
-3. Nguồn: [backlogs/task-{id}/README.md](../../backlogs/) — Value, AC, UAT evidence
+3. Nguồn: [.backlogs/{id}/ready/{id}.md](../../.backlogs/) — Value, AC, UAT evidence
 
 ## Step 2 — Chọn loại báo cáo
 
@@ -58,7 +58,7 @@ Map trực tiếp:
 
 ### Status / sprint
 
-Mỗi bullet **link** tới `backlogs/task-{id}/README.md`. Ghi status: draft | ready | in-progress | done.
+Mỗi bullet **link** tới `.backlogs/{id}/ready/{id}.md`. Ghi status: draft | ready | in-progress | done.
 
 ### Incident
 
@@ -75,7 +75,7 @@ Mỗi bullet **link** tới `backlogs/task-{id}/README.md`. Ghi status: draft | 
 
 ## Step 6 — Sau khi tạo file
 
-1. Cập nhật bảng **Reports** trong task backlog (`backlogs/task-{id}/README.md`)
+1. Cập nhật bảng **Reports** trong task backlog (`.backlogs/{id}/ready/{id}.md`)
 2. Delivery report **bắt buộc** trước khi coi task đã bàn giao PM/KH (task vẫn `done` về kỹ thuật)
 
 ## Output format
