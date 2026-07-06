@@ -14,9 +14,9 @@
 
 ### Giải pháp
 
-- 1. Tạo workflow SDLC
-- 1. Tạo các input/output cho mỗi flow
-- 1. Gán các skills, rule AI tương ứng cho mỗi flow
+- Tạo workflow SDLC
+- Tạo các input/output cho mỗi flow
+- Gán các skills, rule AI tương ứng cho mỗi flow
 
 ```
 INTAKE (bên ngoài — không lưu repo) 
@@ -27,7 +27,7 @@ PLAN        →  .backlogs/{id}/ready/
     ↓
 DESIGN      →  .backlogs/{id}/design/ + 06_design/
     ↓
-TDD         →  ready/ §6 · test/ (RED)
+TDD         →  test/file.md || script
     ↓
 DEVELOP     →  code (backend / frontend / infra)
     ↓
@@ -98,11 +98,6 @@ project-base/
 └── backend/ · frontend/ · infra/ · test/ · script/
 ```
 
-Liên kết chính: notebook `01`–`03` → task `draft` → `ready` → `design` → code. Ticket Redmine/Jira: §0 Intake + §8 References.
-
-- Notebook: [.notebook/README.md](./.notebook/README.md) · Design: [.notebook/06_design/README.md](./.notebook/06_design/README.md)
-- Backlog: [.backlogs/README.md](./.backlogs/README.md)
-
 ---
 
 ## 2) Workflow SLDC — cách dùng
@@ -110,21 +105,20 @@ Liên kết chính: notebook `01`–`03` → task `draft` → `ready` → `desig
 Đọc theo thứ tự trong [.workflow-sldc/](./.workflow-sldc/README.md):
 
 
-| Phase       | Input                                        | Output                              |
-| ----------- | -------------------------------------------- | ----------------------------------- |
-| **Intake**  | Chat, Redmine, họp *(ngoài repo)*            | Tóm tắt §0 trong task               |
-| **Define**  | Intake §0 · notebook `01`–`03`               | `.backlogs/{id}/draft/`             |
-| **Plan**    | `draft/{id}.md` · catalog `01`–`03`          | `.backlogs/{id}/ready/`             |
-| **Design**  | `ready/{id}.md` · notebook `06_design/`      | `.backlogs/{id}/design/` + BD/DD    |
-| **TDD**     | `design/{id}.md` · `ready/` §6               | `test/` (RED)                       |
-| **Develop** | Handoff design · `test/` RED · Todo `ready/` | `backend/` · `frontend/` · `infra/` |
-| **Review**  | PR · diff code                               | PR approved                         |
-| **Test**    | `ready/` §5–§6 · code merged                 | Evidence tick §5–§6                 |
-| **Report**  | Task `done` · evidence verify                | `.notebook/05_reports/`             |
-| **Deploy**  | Release candidate · `infra/`                 | Staging/production                  |
+| Phase       | Input                                                                                                | Output                                                   |
+| ----------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **Intake**  | Chat, Redmine, họp *(ngoài repo)*                                                                    | Thông tin, tài liệu ( md, text )                         |
+| **Define**  | - md, text yêu cầu - tài liệu ở notebook dự án                                                       | `.backlogs/{id}/draft/`                                  |
+| **Plan**    | - `backlogs/{id}/draft/`- nguồn nhân sự thực tế- tài liệu ở notebook dự án                          | - `backlogs/{id}/ready/` - Testcase ( tư duy TDD )       |
+| **Design**  | - `backlogs/{id}/ready/`- tài liệu ở notebook dự án                                                 | `.backlogs/{id}/design/` + Basic design, details design |
+| **Develop** | - Basic design, details design- Task/ EST / Todo- Test case ( TDD )- Skills, rules, tài liệu dự án | `PR`                                                     |
+| **Review**  | PR · diff code                                                                                       | PR approved                                              |
+| **Test**    | Deploy trên develop env                                                                              | Pass test                                                |
+| **Report**  | Task `done` · evidence verify                                                                        | `.notebook/05_reports/`                                  |
+| **Deploy**  | Release candidate · `infra/`                                                                         | Staging/production                                       |
 
 
-Chi tiết từng phase: [02 Define](./.workflow-sldc/02_WORKFLOW_DEFINE.md) · [03 Plan](./.workflow-sldc/03_WORKFLOW_PLAN.md) · [04 Design](./.workflow-sldc/04_WORKFLOW_DESIGN.md) · [01 Workflow](./.workflow-sldc/01_WORKFLOW.md) · Entry: [WORKFLOW.md](./WORKFLOW.md)
+
 
 ### Luồng làm việc thực tế
 
