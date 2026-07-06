@@ -17,20 +17,78 @@ Do not store raw intake in the repo.
 
 Invoke matching skills from `.cursor/skills/`:
 
+### Define
+
 | Situation | Skill |
 |-----------|-------|
 | Intent unclear (who/why/success) | `interview-me` |
 | Many options / MVP | `idea-refine` |
 | Raw intake → one draft task | `create-task-draft` |
 | Catalog / scope impact (01–03) | `spec-driven-development` |
+
+### Plan
+
+| Situation | Skill |
+|-----------|-------|
 | Split tasks, INVEST, status `ready` | `planning-and-task-breakdown` |
-| Design (task ready, before develop) | `design-workflow` |
-| Task done → PM/client report | `report-writer` |
+
+### Design
+
+| Situation | Skill |
+|-----------|-------|
+| Task `ready`, before develop (M+ bắt buộc) | `design-workflow` |
+
+### TDD · Develop
+
+| Situation | Skill |
+|-----------|-------|
+| Test fail (RED) after design | `test-driven-development` |
+| Implement slice by slice (GREEN) | `incremental-implementation` |
+| UI / accessibility | `frontend-ui-engineering` |
+| API / contract design | `api-and-interface-design` |
+| Better agent context | `context-engineering` |
+| Doc-verified framework code | `source-driven-development` |
+| High-stakes / unfamiliar code | `doubt-driven-development` |
+
+### Verify · Test
+
+| Situation | Skill |
+|-----------|-------|
+| Browser runtime verification | `browser-testing-with-devtools` |
+| Test fail, build break, unexpected behavior | `debugging-and-error-recovery` |
+
+### Review
+
+| Situation | Skill |
+|-----------|-------|
+| Pre-merge review | `code-review-and-quality` |
+| Code works but too complex | `code-simplification` |
+| Auth, input, secrets, deps | `security-and-hardening` |
+| Perf requirements or regression | `performance-optimization` |
+
+### Ship · Deploy
+
+| Situation | Skill |
+|-----------|-------|
+| Commits, branches, PR hygiene | `git-workflow-and-versioning` |
+| CI/CD pipelines | `ci-cd-and-automation` |
+| Sunset / migration | `deprecation-and-migration` |
+| ADRs, API docs | `documentation-and-adrs` |
+| Logs, metrics, traces | `observability-and-instrumentation` |
+| Pre-launch, rollout, rollback | `shipping-and-launch` |
+
+### Report
+
+| Situation | Skill |
+|-----------|-------|
+| Task `done` → PM/client handover | `report-writer` |
+
+Checklists: [.notebook/00_references/](../../.notebook/00_references/README.md)
 
 ## Pipeline
 
 ```
-INTAKE → define → plan → ready → design → develop → review → test → deploy → report
+INTAKE → define → plan → ready → design → tdd → develop → review → test → deploy → report
 ```
 
 Do not set task status `ready` without INVEST and human approval.  

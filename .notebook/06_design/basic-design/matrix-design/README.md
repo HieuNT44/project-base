@@ -2,7 +2,15 @@
 
 Hướng dẫn viết tài liệu **`matrix-design.md`** — bảng **Function × Role**: ai được làm gì, mức quyền ra sao (full, read-only, không, có điều kiện).
 
-**project-base** chỉ có README này. Dự án tạo `matrix-design.md` trong thư mục này khi đã chốt role và phạm vi feature (thường sau [screen-list](../screen-list/_screen-list.template.md) hoặc `02_function-list`).
+**project-base** có README + template + example. Dự án tạo `matrix-design.md` trong thư mục này khi đã chốt role và phạm vi feature (thường sau [screen-list](../screen-list/_screen-list.template.md) hoặc `02_function-list`).
+
+## Tài liệu trong thư mục
+
+| File | Mục đích |
+|------|----------|
+| [_matrix-design.template.md](./_matrix-design.template.md) | Template chính — copy thành `matrix-design.md` |
+| [_matrix-design.example.md](./_matrix-design.example.md) | Ví dụ điền mẫu (UGC Agent) |
+| `matrix-design.md` | Bản chính thức (sau khi copy & điền) |
 
 ---
 
@@ -34,6 +42,8 @@ Tóm tắt RBAC tổng quan: dùng [matrix-design](../matrix-design/README.md) h
 
 | File | Nội dung |
 |------|----------|
+| [_matrix-design.template.md](./_matrix-design.template.md) | Template — copy thành `matrix-design.md` |
+| [_matrix-design.example.md](./_matrix-design.example.md) | Ví dụ UGC Agent |
 | `matrix-design.md` | Ma trận đầy đủ — **một file** hoặc tách `matrix-design-{module}.md` nếu quá lớn |
 
 Header: **Dự án** · **Version** · **Ngày**

@@ -1,21 +1,21 @@
-# Non-functional requirements (NFR)
+# Yêu cầu phi chức năng (NFR)
 
-Quality attributes and constraints: security, performance, availability, i18n, compliance, operations.
+Thuộc tính chất lượng và ràng buộc hệ thống: bảo mật, hiệu năng, khả dụng, đa ngôn ngữ, tuân thủ, vận hành.
 
-## Files
+## Tệp trong thư mục
 
-| File | Purpose |
-|------|---------|
-| [catalog.template.md](./catalog.template.md) | NFR index with verification approach |
+| Tệp | Mục đích |
+|-----|----------|
+| [catalog.template.md](./catalog.template.md) | Bảng NFR kèm cách kiểm chứng |
 
-## When to update
+## Khi nào cập nhật
 
-- New security, compliance, or operational rule
-- Performance or availability target changes
-- Request analysis shows an NFR gap
+- Quy tắc bảo mật, tuân thủ hoặc vận hành mới
+- Thay đổi mục tiêu hiệu năng hoặc khả dụng
+- Phân tích yêu cầu phát hiện thiếu NFR
 
-## Analyze checklist
+## Checklist đối chiếu
 
-- [ ] Which NFR categories does this request touch?
-- [ ] Existing NFR sufficient or catalog update needed?
-- [ ] Backlog tasks include NFR verification where relevant
+- [ ] Yêu cầu này chạm nhóm NFR nào?
+- [ ] NFR hiện có đủ hay cần cập nhật catalog?
+- [ ] Backlog task có ghi verification NFR liên quan (nếu có)

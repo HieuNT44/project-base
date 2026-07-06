@@ -1,56 +1,56 @@
-# Function list
+# Danh sách chức năng
 
-**Functional catalog** — what the system can do. Stable reference for analyzing incoming requests.
+**Catalog chức năng** — hệ thống làm được những gì. Tài liệu tham chiếu ổn định khi phân tích yêu cầu mới.
 
-Execution detail lives in [../.backlogs/](../.backlogs/). WBS (phase/module tree): [../04_wbs/](../04_wbs/). This table links catalog tasks to backlog folders via the **Backlog** column.
+Chi tiết thực thi nằm ở [backlog](../../.backlogs/). WBS (cây phase/module): [04_wbs](../04_wbs/). Bảng này liên kết task catalog với folder backlog qua cột **Backlog**.
 
-## Files
+## Tệp trong thư mục
 
-| File | Purpose |
-|------|---------|
-| [catalog.template.md](./catalog.template.md) | Copy to `catalog.md` — master table |
+| Tệp | Mục đích |
+|-----|----------|
+| [catalog.template.md](./catalog.template.md) | Copy thành `catalog.md` — bảng master |
 
-## Columns
+## Các cột
 
-| Column | Required | Description |
-|--------|----------|-------------|
-| **Function** | Yes | Capability group (first row per group) |
-| **Task** | Yes | Short task name — plain text, not a URL |
-| **Backlog** | Yes | Link to `../.backlogs/{id}/ready/{id}.md` or `TBD` |
-| **Summary** | Yes | Brief what this task delivers |
-| **Outcome** | Yes* | Business value (*on Function row; optional on child rows) |
+| Cột | Bắt buộc | Mô tả |
+|-----|----------|-------|
+| **Function** | Có | Nhóm năng lực (dòng đầu mỗi nhóm) |
+| **Task** | Có | Tên task ngắn — text thuần, không phải URL |
+| **Backlog** | Có | Link tới `../../.backlogs/{id}/ready/{id}.md` hoặc `TBD` |
+| **Summary** | Có | Tóm tắt task này bàn giao gì |
+| **Outcome** | Có* | Giá trị nghiệp vụ (*ở dòng Function; tuỳ chọn ở dòng con) |
 
-### Optional columns (large projects)
+### Cột tuỳ chọn (dự án lớn)
 
-| Column | When to add |
-|--------|-------------|
-| **ID** | `FN-01` / `T-01` for traceability with external trackers |
-| **Module** | Multiple product areas in one catalog |
-| **Priority** | P1/P2 for standard catalog rollout order |
-| **Status** | `planned` / `delivered` for catalog maturity |
+| Cột | Khi thêm |
+|-----|----------|
+| **ID** | `FN-01` / `T-01` để trace với tracker ngoài (Redmine, Jira…) |
+| **Module** | Nhiều vùng sản phẩm trong một catalog |
+| **Priority** | P1/P2 cho thứ tự triển khai catalog chuẩn |
+| **Status** | `planned` / `delivered` cho độ trưởng thành catalog |
 
-## When to update
+## Khi nào cập nhật
 
-- New module or capability added to the product
-- Standard task decomposition changes for a Function
-- New catalog task → create matching `.backlogs/{id}/ready/` and set **Backlog** link
+- Thêm module hoặc năng lực mới vào sản phẩm
+- Cách bóc tách task chuẩn của một Function thay đổi
+- Task catalog mới → tạo `.backlogs/{id}/ready/` tương ứng và gắn link **Backlog**
 
-## When not to update
+## Khi nào không cập nhật
 
-- One-off change, bugfix, or client-specific request → only [.backlogs/](../.backlogs/)
+- Thay đổi một lần, bugfix, hoặc yêu cầu riêng khách hàng → chỉ tạo [.backlogs](../../.backlogs/)
 
-## Analyze checklist
+## Checklist đối chiếu
 
-- [ ] Request maps to an existing **Function**
-- [ ] Request maps to an existing **Task** row (check **Backlog** link)
-- [ ] New catalog task? → add row + create `.backlogs/{id}/ready/` + link in **Backlog** column
-- [ ] New Function needed? → update catalog + create backlog tasks
+- [ ] Yêu cầu map được với **Function** hiện có
+- [ ] Yêu cầu map được với dòng **Task** hiện có (kiểm tra link **Backlog**)
+- [ ] Task catalog mới? → thêm dòng + tạo `.backlogs/{id}/ready/` + link cột **Backlog**
+- [ ] Cần Function mới? → cập nhật catalog + tạo backlog task
 
-## Agent rule
+## Quy tắc cho agent
 
-When creating a catalog task row:
+Khi tạo dòng task catalog:
 
-1. Assign `{id}` (e.g. `DEV_001` — next free id).
-2. Create `.backlogs/{id}/draft/{id}.md` from [_task.template.md](../.backlogs/_task.template.md) (Define); Plan → `{id}/ready/{id}.md`.
-3. Set **Backlog** column to `[{id}](../.backlogs/{id}/ready/{id}.md)`.
-4. Keep **Task** column as human-readable title only.
+1. Gán `{id}` (vd. `DEV_001` — id trống tiếp theo).
+2. Tạo `.backlogs/{id}/draft/{id}.md` từ [_task.template.md](../../.backlogs/_task.template.md) (Define); Plan → `{id}/ready/{id}.md`.
+3. Cột **Backlog** trỏ tới `[{id}](../../.backlogs/{id}/ready/{id}.md)`.
+4. Cột **Task** chỉ là tiêu đề đọc được — không gắn link.

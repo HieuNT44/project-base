@@ -14,19 +14,27 @@ Wires org skills and workflow into Cursor for any project cloned from **project-
 
 Edit skills only under [skills/](./skills/). See [skills/README.md](./skills/README.md).
 
-| Phase | Skills |
-|-------|--------|
-| Define | `interview-me`, `idea-refine`, `create-task-draft` |
-| Plan | `spec-driven-development`, `planning-and-task-breakdown` |
-| Design | `design-workflow` |
-| Report | `report-writer` |
+## Commands (`/` in chat)
+
+[commands/README.md](./commands/README.md) — `/define`, `/plan`, `/design`, `/tdd`, `/build`, `/test`, `/review`, `/ship`, `/report`, …
+
+## Personas
+
+[agents/README.md](./agents/README.md) — `code-reviewer`, `security-auditor`, `test-engineer`, `web-performance-auditor`
+
+## Hooks
+
+[hooks.json](./hooks.json) — `sessionStart` injects `using-agent-skills`
 
 ## Usage in chat
 
 - **Auto:** Agent picks skill from `description` when context matches
+- **Command:** `/design`, `/build`, `/review`, …
 - **Explicit:** `@design-workflow` or “Use skill design-workflow for …”
-- **Entry:** [WORKFLOW.md](../WORKFLOW.md) → [.workflow-sldc/01_WORKFLOW.md](../.workflow-sldc/01_WORKFLOW.md)
+- **Entry:** [WORKFLOW.md](../WORKFLOW.md) · [AGENTS.md](../AGENTS.md)
 
 ## Maintenance
 
-New skill: add `.cursor/skills/{name}/SKILL.md`, register in `skills/README.md` and `rules/00-workflow.mdc`.
+- New skill → `.cursor/skills/{name}/SKILL.md`, register in `skills/README.md` and `rules/00-workflow.mdc`
+- New command → `.cursor/commands/{name}.md`
+- New persona → `.cursor/agents/{name}.md`

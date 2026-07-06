@@ -9,7 +9,7 @@ Tham chiếu: [01_WORKFLOW.md](./01_WORKFLOW.md) · [02_WORKFLOW_DEFINE.md](./02
 1. Đọc lại task nháp + tài liệu dự án
 2. Làm rõ việc cụ thể (backend, frontend, API…)
 3. Bổ sung trường hợp đặc biệt / cách tái hiện lỗi (nếu sửa bug)
-4. Chốt điều kiện nghiệm thu — kiểm tra được pass/fail
+4. Chốt điều kiện nghiệm thu — kiểm tra được pass/fail ( Tư duy TDD )
 5. Viết bảng test case (mục §6 trong task)
 6. Viết checklist hoàn thành (mục §5)
 7. Ước thời gian; nếu > 8 giờ → tách subtask
@@ -20,8 +20,8 @@ Tham chiếu: [01_WORKFLOW.md](./01_WORKFLOW.md) · [02_WORKFLOW_DEFINE.md](./02
 ### Skills
 
 
-| Việc                      | Skill                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------ |
+| Việc                      | Skill                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------- |
 | Cập nhật catalog dự án    | [spec-driven-development](../.cursor/skills/spec-driven-development/SKILL.md)         |
 | Chia việc, AC, test, Todo | [planning-and-task-breakdown](../.cursor/skills/planning-and-task-breakdown/SKILL.md) |
 
@@ -39,9 +39,9 @@ Task **draft**: `.backlogs/{id}/draft/{id}.md` (từ Define / [create-task-draft
 ## 2) Output
 
 
-| Artifact | Trạng thái |
-| -------- | ---------- |
-| `.backlogs/{id}/ready/{id}.md` | **ready** |
+| Artifact                       | Trạng thái |
+| ------------------------------ | ---------- |
+| `.backlogs/{id}/ready/{id}.md` | **ready**  |
 
 
 ---
@@ -56,7 +56,7 @@ Task **draft**: `.backlogs/{id}/draft/{id}.md` (từ Define / [create-task-draft
 | 3   | Làm rõ phạm vi    | **Bắt buộc**                              | Bóc tách §2; bổ sung §3 edge / repro          | §2–§3 chốt                       | `planning-and-task-breakdown` |
 | 4   | Chốt AC & TTD     | **Bắt buộc**                              | §4 G/W/T testable; §6 test case; §5 checklist | AC + TTD + Tiêu chí hoàn thành   | `planning-and-task-breakdown` |
 | 5   | Ước lượng & Todo  | **Bắt buộc**                              | Tổng ≤ 8h hoặc tách subtask; bảng Todo        | Estimate · Todo · Subtasks       | `planning-and-task-breakdown` |
-| 6   | Duyệt → ready     | **Bắt buộc**                              | PM/lead review                                | Status → **ready**             | —                             |
+| 6   | Duyệt → ready     | **Bắt buộc**                              | PM/lead review                                | Status → **ready**               | —                             |
 
 
 ---

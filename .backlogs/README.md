@@ -38,13 +38,14 @@ Plan: copy/sinh `draft/{id}.md` → `ready/{id}.md`. Design: tạo `design/{id}.
 | Task file | `{id}.md` trong `draft/` · `ready/` · `design/` | `DEV_001/draft/DEV_001.md` |
 | Subtask | `{id}_{slug}.md` cùng folder phase | `DEV_001/ready/DEV_001_api.md` |
 
-## Task khung (8 mục)
+## Task khung (mục 0 + 8 mục)
 
 Một file task — draft và ready **cùng skeleton**; Plan chỉ làm rõ và thêm **Todo**.
 
 | # | Mục | Define (`draft`) | Plan (`ready`) |
 |---|-----|------------------|----------------|
 | — | **Metadata** | ID, Type, Status `draft` | + Estimate ≤ 8h, Assignee, Subtasks |
+| 0 | Nguồn đầu vào (Intake) | Tóm tắt + link ticket _(không lưu bản gốc)_ | Bổ sung nguồn nếu có |
 | 1 | Mô tả bài toán (User Story) | As / I want / So that | Giữ; sửa nếu cần |
 | 2 | Mô tả & Nhiệm vụ | Mô tả làm gì | Bóc tách bullet cụ thể |
 | 3 | Luồng xử lý | Happy path | + edge; bug → repro steps |

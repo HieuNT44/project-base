@@ -1,129 +1,129 @@
-# Business requirements — {Project name}
+# Yêu cầu nghiệp vụ — {Tên dự án}
 
-Copy this file to `overview.md` when starting a project.  
-Sections marked **(optional)** can be omitted for small projects or moved to separate files (`glossary.md`, `lifecycle.md`, etc.).
-
----
-
-## 1. Overview
-
-| Item | Description |
-|------|-------------|
-| **Organization** | |
-| **Product / system purpose** | |
-| **Primary users** | |
-| **Environment** | dev / staging / production |
+Copy file này thành `overview.md` khi khởi động dự án.  
+Các mục ghi **(tuỳ chọn)** có thể bỏ qua với dự án nhỏ hoặc tách sang file riêng (`glossary.md`, `lifecycle.md`, …).
 
 ---
 
-## 2. Stakeholders
+## 1. Tổng quan
 
-| Group | Role in the project | Uses the system? |
-|-------|---------------------|------------------|
-| | | yes / no / admin only |
+| Hạng mục | Mô tả |
+|----------|-------|
+| **Tổ chức** | |
+| **Mục đích sản phẩm / hệ thống** | |
+| **Người dùng chính** | |
+| **Môi trường** | dev / staging / production |
 
 ---
 
-## 3. Business goals & success metrics
+## 2. Các bên liên quan (stakeholder)
 
-| # | Goal | Success metric (measurable) |
-|---|------|----------------------------|
+| Nhóm | Vai trò trong dự án | Có dùng hệ thống? |
+|------|---------------------|-------------------|
+| | | có / không / chỉ quản trị |
+
+---
+
+## 3. Mục tiêu nghiệp vụ & chỉ số thành công
+
+| # | Mục tiêu | Chỉ số thành công (đo được) |
+|---|----------|----------------------------|
 | BG-01 | | |
 | BG-02 | | |
 
 ---
 
-## 4. Scope
+## 4. Phạm vi
 
-### In scope
+### Trong phạm vi (IN)
 
 -
 
-### Out of scope
+### Ngoài phạm vi (OUT)
 
 -
 
 ---
 
-## 5. Assumptions
+## 5. Giả định
 
-| # | Assumption | Risk if wrong |
-|---|------------|---------------|
+| # | Giả định | Rủi ro nếu sai |
+|---|----------|----------------|
 | A-01 | | |
 
 ---
 
-## 6. Constraints
+## 6. Ràng buộc
 
-| Type | Constraint |
-|------|------------|
-| Time | |
-| Budget | |
-| Technology | |
-| Compliance | |
+| Loại | Ràng buộc |
+|------|-----------|
+| Thời gian | |
+| Ngân sách | |
+| Công nghệ | |
+| Tuân thủ (compliance) | |
 
 ---
 
-## 7. Glossary *(optional)*
+## 7. Thuật ngữ *(tuỳ chọn)*
 
-Domain terms to avoid misunderstanding. Not technical API names.
+Thuật ngữ nghiệp vụ để tránh hiểu nhầm. Không phải tên API kỹ thuật.
 
-| Term | Meaning |
-|------|---------|
+| Thuật ngữ | Ý nghĩa |
+|-----------|---------|
 | | |
 
 ---
 
-## 8. Business process / lifecycle *(optional)*
+## 8. Quy trình / vòng đời nghiệp vụ *(tuỳ chọn)*
 
-End-to-end business flow: who does what at each step.
+Luồng nghiệp vụ end-to-end: ai làm gì ở từng bước.
 
-| Step | Actor | Activity | Customer / external party |
-|------|-------|----------|-------------------------|
+| Bước | Tác nhân | Hoạt động | Khách hàng / bên ngoài |
+|------|----------|-----------|------------------------|
 | 1 | | | |
 
-**Record or data chain** *(if applicable):*
+**Chuỗi bản ghi hoặc dữ liệu** *(nếu có):*
 
 ```
-Example: Entity A → Entity B → Entity C
+Ví dụ: Thực thể A → Thực thể B → Thực thể C
 ```
 
 ---
 
-## 9. Who uses what *(optional)*
+## 9. Ai dùng gì *(tuỳ chọn)*
 
-Which groups access which screens, channels, or capabilities.
+Nhóm nào truy cập màn hình, kênh hoặc khả năng nào.
 
-| Screen / channel | Stakeholder group | Notes |
-|------------------|-------------------|-------|
+| Màn hình / kênh | Nhóm stakeholder | Ghi chú |
+|-----------------|------------------|---------|
 | | | |
 
 ---
 
-## 10. Phased delivery — business view *(optional)*
+## 10. Triển khai theo giai đoạn — góc nhìn nghiệp vụ *(tuỳ chọn)*
 
-When each stakeholder group starts using the system. Business phases, not technical sprints.
+Thời điểm từng nhóm stakeholder bắt đầu dùng hệ thống. Giai đoạn nghiệp vụ, không phải sprint kỹ thuật.
 
-| Phase | What goes live (business) | Stakeholders involved |
-|-------|---------------------------|------------------------|
+| Giai đoạn | Nội dung go-live (nghiệp vụ) | Stakeholder liên quan |
+|-----------|------------------------------|------------------------|
 | 1 | | |
 | 2 | | |
 
 ---
 
-## 11. Business-level acceptance *(optional)*
+## 11. Nghiệm thu cấp nghiệp vụ *(tuỳ chọn)*
 
-Conditions to consider the project or phase successful from a business perspective.
+Điều kiện coi dự án hoặc giai đoạn thành công theo góc nhìn nghiệp vụ.
 
 - [ ] …
 - [ ] …
 
 ---
 
-## 12. Approval
+## 12. Phê duyệt
 
 | | |
 |---|---|
-| **Reviewed by** | |
-| **Date** | |
-| **Status** | draft / approved |
+| **Người rà soát** | |
+| **Ngày** | |
+| **Trạng thái** | nháp / đã duyệt |

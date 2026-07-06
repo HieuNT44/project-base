@@ -13,7 +13,7 @@ See [.workflow-sldc/01_WORKFLOW.md](../.workflow-sldc/01_WORKFLOW.md) for the fu
 
 | # | Folder | Purpose | Owner |
 |---|--------|---------|-------|
-| 00 | [00_references/](./00_references/) | Standing gates — [INVEST](./00_references/invest.md), [Definition of Done](./00_references/definition-of-done.md) | Lead |
+| 00 | [00_references/](./00_references/) | Gates & checklists — [INVEST](./00_references/invest.md), [DoD](./00_references/definition-of-done.md), [index](./00_references/README.md) | Lead |
 | 01 | [01_business-requirements/](./01_business-requirements/) | Why the project exists, stakeholders, scope IN/OUT | PM / BA |
 | 02 | [02_function-list/](./02_function-list/) | Functional catalog — Function, Task, Backlog link, Summary, Outcome | PM / lead |
 | 03 | [03_non-functional-requirements/](./03_non-functional-requirements/) | NFR — security, performance, i18n, compliance | Architect / lead |

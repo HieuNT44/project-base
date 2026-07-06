@@ -6,7 +6,7 @@ Develop-phase skills and references — separate from `.cursor/` project skills.
 
 | Path | Purpose |
 |------|---------|
-| [references/](./references/) | Shared checklists (DoD, …) |
+| [references/](./references/) | Pointer to [.notebook/00_references/](../.notebook/00_references/README.md) — DoD, checklists |
 | [vendor/](./vendor/) | Optional clones of upstream skill libraries |
 
 ## Project skills vs vendor
@@ -20,3 +20,5 @@ Develop-phase skills and references — separate from `.cursor/` project skills.
 
 - [WORKFLOW.md](../WORKFLOW.md) · [.workflow-sldc/01_WORKFLOW.md](../.workflow-sldc/01_WORKFLOW.md)
 - [.cursor/skills/README.md](../.cursor/skills/README.md)
+- [.cursor/agents/README.md](../.cursor/agents/README.md) — review personas
+- [.cursor/commands/README.md](../.cursor/commands/README.md) — slash commands

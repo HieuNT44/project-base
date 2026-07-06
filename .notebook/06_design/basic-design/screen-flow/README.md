@@ -72,7 +72,14 @@ Vẽ theo **hành trình người dùng trên màn hình**, không vẽ cấu tr
 - Trước implement routing FE hoặc trước DD chi tiết từng màn
 - Luồng phức tạp: đăng ký, thanh toán, duyệt admin, onboarding…
 
-**project-base:** chỉ README này. Dự án tạo file ví dụ `screen-flow.md` trong thư mục này khi cần.
+**project-base:** README + template. Dự án copy [_screen-flow.template.md](./_screen-flow.template.md) thành `screen-flow.md` khi cần.
+
+## Tài liệu trong thư mục
+
+| File | Mục đích |
+|------|----------|
+| [_screen-flow.template.md](./_screen-flow.template.md) | Template chính — copy thành `screen-flow.md` |
+| `screen-flow.md` | Bản chính thức (sau khi copy & điền) |
 
 ---
 

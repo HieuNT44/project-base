@@ -9,7 +9,7 @@ Chi tiết: [02 Define](./02_WORKFLOW_DEFINE.md) → [03 Plan](./03_WORKFLOW_PLA
 ## Mô hình tổng quan
 
 ```
-INTAKE (bên ngoài — không lưu repo)
+INTAKE (bên ngoài — không lưu repo) 
     ↓
 DEFINE      →  .backlogs/{id}/draft/
     ↓
@@ -23,9 +23,9 @@ REVIEW      →  PR, duyệt
     ↓
 TEST        →  verification trong task
     ↓
-DEPLOY      →  release / smoke
-    ↓
 REPORT      →  .notebook/05_reports/
+    ↓
+DEPLOY      →  release / smoke
 ```
 
 ---

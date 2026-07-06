@@ -7,7 +7,13 @@
 **Estimate:** — h _(≤ 8h)_  
 **Assignee:** —
 
-Cùng khung 8 mục với parent — phạm vi một slice vertical.
+Cùng khung với parent — phạm vi một slice vertical. §0: tham chiếu parent hoặc bỏ qua nếu trùng.
+
+---
+
+## 0. Nguồn đầu vào (Intake)
+
+_(Tuỳ chọn — thường kế thừa [parent §0](./{id}.md#0-nguồn-đầu-vào-intake).)_
 
 ---
 

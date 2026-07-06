@@ -1,25 +1,25 @@
-# Function list — {Product or module name}
+# Danh sách chức năng — {Tên sản phẩm hoặc module}
 
-Copy to `catalog.md` when defining the functional catalog for a project.
+Copy thành `catalog.md` khi định nghĩa catalog chức năng cho dự án.
 
 | Function | Task | Backlog | Summary | Outcome |
 |----------|------|---------|---------|---------|
-| **{Function name}** | {Task title — short label} | [{id}](../../.backlogs/{id}/ready/{id}.md) | What this standard task covers | Value for user or business |
-| | {Another task title} | [{id}](../../.backlogs/{id}/ready/{id}.md) | | |
-| | {Task not created yet} | TBD | Planned task | | |
+| **{Tên function}** | {Tiêu đề task — nhãn ngắn} | [{id}](../../.backlogs/{id}/ready/{id}.md) | Task chuẩn này bao phủ gì | Giá trị cho user hoặc nghiệp vụ |
+| | {Tiêu đề task khác} | [{id}](../../.backlogs/{id}/ready/{id}.md) | | |
+| | {Task chưa tạo} | TBD | Task dự kiến | | |
 
-## Column guide
+## Hướng dẫn từng cột
 
-| Column | Purpose |
-|--------|---------|
-| **Function** | Capability group. Write on the first row of each group only. |
-| **Task** | Short readable name — not a link. |
-| **Backlog** | Link to `../../.backlogs/{id}/ready/{id}.md` or `TBD` if not created yet. |
-| **Summary** | Plan-level description (what). No API names or detailed design. |
-| **Outcome** | Business value. Usually on the first row of each Function group. |
+| Cột | Mục đích |
+|-----|----------|
+| **Function** | Nhóm năng lực. Chỉ ghi ở dòng đầu mỗi nhóm. |
+| **Task** | Tên ngắn, dễ đọc — không phải link. |
+| **Backlog** | Link tới `../../.backlogs/{id}/ready/{id}.md` hoặc `TBD` nếu chưa tạo. |
+| **Summary** | Mô tả mức Plan (làm gì). Không ghi tên API hay design chi tiết. |
+| **Outcome** | Giá trị nghiệp vụ. Thường ghi ở dòng đầu mỗi nhóm Function. |
 
-## Notes
+## Ghi chú
 
-- One catalog row = one standard task = one folder `.backlogs/{id}/`.
-- One-off requests → create [.backlogs](../../.backlogs/) only; do not add a catalog row unless the product gains a new capability.
-- Detailed acceptance criteria and verification live in the backlog task file, not in this table.
+- Một dòng catalog = một task chuẩn = một folder `.backlogs/{id}/`.
+- Yêu cầu một lần → chỉ tạo [.backlogs](../../.backlogs/); không thêm dòng catalog trừ khi sản phẩm có năng lực mới.
+- Tiêu chí nghiệm thu và verification chi tiết nằm trong file backlog task, không nằm trong bảng này.

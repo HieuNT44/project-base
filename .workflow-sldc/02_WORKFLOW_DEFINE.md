@@ -37,12 +37,13 @@ Yêu cầu chưa thành task: chat, email, ticket, biên bản họp…
 
 ## 4) Tạo Task Draft
 
-### Các phần task (khung 8 mục + metadata)
+### Các phần task (mục 0 + 8 mục + metadata)
 
 
 | #   | Mục                             | Define (`draft`)                      | Ghi chú                   |
 | --- | ------------------------------- | ------------------------------------- | ------------------------- |
 | —   | **Metadata**                    | Tiêu đề, Type, Status `draft`         | Function link `02` nếu có |
+| 0   | **Nguồn đầu vào (Intake)**      | Link ticket + tóm tắt đã xử lý        | Không lưu intake thô repo |
 | 1   | **Mô tả bài toán (User Story)** | As a / I want / So that               | Bắt buộc                  |
 | 2   | **Mô tả & Nhiệm vụ**            | Làm gì khi xong; UI/data/API nếu biết | Bắt buộc                  |
 | 3   | **Luồng xử lý chính**           | Happy path                            | Nên có với feature        |
@@ -66,6 +67,14 @@ Giả định từ biên bản họp thô:
 
 **ID:** DEV_001 | **Type:** feature | **Status:** draft
 **Function:** — | **Estimate:** — | **Assignee:** — | **Subtasks:** không
+
+## 0. Nguồn đầu vào (Intake)
+
+| Nguồn | Link / vị trí | Ngày | Tóm tắt |
+|-------|---------------|------|---------|
+| Ticket KH | Jira PROJ-456 | 2026-06-18 | Muốn xem trạng thái vận chuyển như Shopee |
+
+**Yêu cầu gốc (rút gọn):** *"Khách hàng phàn nàn mua hàng xong không biết đơn hàng đang ở đâu…"*
 
 ## 1. Mô tả bài toán (User Story)
 
@@ -122,7 +131,7 @@ Cập nhật trạng thái real-time (ref `.notebook/03_non-functional-requireme
 | NFR tích hợp | .notebook/03_non-functional-requirements/ | API, real-time |
 | API GHN | [TBD] | Tracking ID |
 | Figma timeline | [TBD] | UI |
-| Ticket KH | Jira / biên bản họp | Yêu cầu gốc |
+| Ticket KH | _(chi tiết §0 Intake)_ | Yêu cầu gốc |
 ```
 
 *Ghi vào [`.backlogs/_task.template.md`](../.backlogs/_task.template.md). §5–6 + **Plan — Todo** hoàn thiện ở Plan. Skill: [create-task-draft](../.cursor/skills/create-task-draft/SKILL.md).*

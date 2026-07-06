@@ -13,6 +13,18 @@ Khung kế thừa [02_WORKFLOW_DEFINE.md](../.workflow-sldc/02_WORKFLOW_DEFINE.m
 
 ---
 
+## 0. Nguồn đầu vào (Intake)
+
+_(Define: tóm tắt yêu cầu gốc + link Redmine/Jira/chat — **không** lưu intake thô trong repo.)_
+
+| Nguồn | Link / vị trí | Ngày | Tóm tắt |
+|-------|---------------|------|---------|
+| {Redmine / Jira / email / họp} | {URL hoặc "ngoài repo"} | YYYY-MM-DD | {1–2 câu đã sàng lọc} |
+
+**Yêu cầu gốc (rút gọn):** _"{trích dẫn ngắn hoặc paraphrase}"_
+
+---
+
 ## 1. Mô tả bài toán (User Story)
 
 As a: …  
@@ -68,7 +80,7 @@ _(Chỉ khi liên quan [`.notebook/03_non-functional-requirements/`](../.noteboo
 | Scope | `.notebook/01_business-requirements/` | In/out scope |
 | Function-list | `.notebook/02_function-list/` | Notebook row |
 | NFR | `.notebook/03_non-functional-requirements/` | Ràng buộc |
-| Ticket / nguồn | — | Jira / Redmine / biên bản họp |
+| Ticket / nguồn | — | Jira / Redmine / biên bản họp _(chi tiết ở §0)_ |
 | Thiết kế / API | — | Figma, API đối tác |
 | Tracker ngoài | — | Redmine #… / Jira PROJ-… |
 
@@ -86,7 +98,7 @@ _(**Plan** bắt buộc trước `ready`: thứ tự, giờ, người. **Develop
 
 ## Subtasks
 
-_(Bắt buộc khi **Estimate > 8h** — mỗi subtask ≤ 8h, cùng khung 8 mục trong [_subtask.template.md](./_subtask.template.md).)_
+_(Bắt buộc khi **Estimate > 8h** — mỗi subtask ≤ 8h, cùng khung mục 0 + 8 trong [_subtask.template.md](./_subtask.template.md).)_
 
 | Subtask | File | h | Status |
 |---------|------|---|--------|

@@ -1,73 +1,83 @@
-# Example parent task
+# Tích hợp tính năng Theo dõi trạng thái vận chuyển đơn hàng
 
 **ID:** example_001  
 **Path:** `.backlogs/example_001/draft/` → `ready/` → `design/`  
 **Type:** feature  
-**Function:** _(see `.notebook/02_function-list/`)_  
+**Function:** Đơn hàng _(xem `.notebook/02_function-list/`)_  
 **Status:** draft  
-**Estimate:** 4 h  
+**Estimate:** —  
 **Assignee:** —  
 **Subtasks:** không
 
-> Example for [`.backlogs/_task.template.md`](../../_task.template.md). Delete `example_001/` when you add real tasks.
+> Ví dụ task thật theo [`.backlogs/_task.template.md`](../../_task.template.md). Xóa `example_001/` khi có task production.
+
+---
+
+## 0. Nguồn đầu vào (Intake)
+
+_(Tóm tắt đã xử lý — **không** dán nguyên chat/họp/ticket vào repo. Link tracker ngoài.)_
+
+| Nguồn | Link / vị trí | Ngày | Tóm tắt |
+|-------|---------------|------|---------|
+| Redmine #1234 | https://redmine.example.com/issues/1234 | 2026-06-18 | KH phàn nàn: mua xong không biết đơn đang ở đâu, muốn xem trạng thái như Shopee |
+| Biên bản họp sprint | _(Notion — ngoài repo)_ | 2026-06-20 | PM ưu tiên MVP timeline trên Chi tiết đơn hàng; carrier phase 1: GHN |
+
+**Yêu cầu gốc (rút gọn):** *"Khách hàng phàn nàn mua hàng xong không biết đơn hàng đang ở đâu, muốn có chỗ xem trạng thái vận chuyển giống Shopee."*
 
 ---
 
 ## 1. Mô tả bài toán (User Story)
 
-As a: team member onboarding to project-base.  
-I want to: see a sample backlog task structure.  
-So that: agents and humans use the same 8-section frame.
+As a: Khách hàng đã mua sản phẩm trên hệ thống.  
+I want to: Xem lộ trình và trạng thái vận chuyển chi tiết của đơn hàng (Đang chuẩn bị, Đang giao, Đã giao).  
+So that: Chủ động biết khi nào hàng đến để nhận, giảm lo lắng và giảm tỷ lệ gọi hotline hỗ trợ.
 
 ## 2. Mô tả & Nhiệm vụ
 
-- Document khung 8 mục trong `example_001/draft/example_001.md`.
-- Link tới [`.backlogs/README.md`](../../README.md).
+- Hiển thị timeline vận chuyển trên trang Chi tiết đơn hàng.
+- Đồng bộ mã vận đơn (Tracking ID) qua API đối tác vận chuyển (GHN / GHTK / Viettel Post — chốt ở Plan).
+- UI: link Figma timeline _(TBD)_.
 
 ## 3. Luồng xử lý chính (User Flow & Happy Path)
 
-1. Open `example_001/draft/example_001.md`.
-2. Compare with `_task.template.md`.
+1. Người dùng vào mục **Đơn hàng của tôi**.
+2. Bấm vào một đơn hàng cụ thể để xem **Chi tiết đơn hàng**.
+3. Hệ thống hiển thị timeline các mốc vận chuyển (thời gian + trạng thái).
 
 ## 4. Tiêu chí nghiệm thu (Acceptance Criteria)
 
-AC 1: Template sections match README table  
-Given: Reader opens example task.  
-When: They compare section headings.  
-Then: All 8 sections + metadata + Plan — Todo are present.
+AC 1: Hiển thị trục mốc thời gian vận chuyển  
+Given: Người dùng đang ở trang Chi tiết đơn hàng.  
+When: Đơn hàng đã được bàn giao cho đơn vị vận chuyển.  
+Then: Hệ thống hiển thị timeline với các trạng thái cập nhật theo thời gian thực.
+
+AC 2: Đơn hàng bị hủy  
+Given: Người dùng đang xem đơn hàng.  
+When: Đơn hàng bị hủy (hết hàng hoặc khách hủy).  
+Then: Timeline hiển thị trạng thái **Đã hủy** kèm lý do (nếu có).
+
+AC 3: Chưa có thông tin vận chuyển  
+Given: Đơn hàng mới tạo thành công.  
+When: Cửa hàng chưa đóng gói và chưa giao shipper.  
+Then: Timeline chỉ hiển thị mốc **Đơn hàng đã đặt thành công**.
 
 ## 5. Tiêu chí hoàn thành
 
-- [ ] AC 1 pass
-- [ ] TTD T1 pass
+_(Plan chốt — draft để trống.)_
 
 ## 6. TTD (test case)
 
-| ID | Case | Loại | Kỳ vọng | Kết quả |
-|----|------|------|---------|---------|
-| T1 | Section headings | manual | 8 mục + Todo | — |
+_(Plan bổ sung — có thể nháp sau khi chốt API đối tác.)_
 
-## 7. Non-functional _(optional)_
+## 7. Non-functional _(tuỳ chọn)_
 
-—
+- Cập nhật trạng thái gần real-time _(tham chiếu `.notebook/03_non-functional-requirements/`)_.
 
 ## 8. References
 
 | Tài liệu | Link | Dùng để |
 |----------|------|---------|
-| Backlog README | [README.md](../../README.md) | Khung 8 mục |
-| Template | [_task.template.md](../../_task.template.md) | Source of truth |
-
----
-
-## Plan — Todo
-
-| # | Việc | h | Ai | Sau # | ✓ |
-|---|------|---|-----|-------|---|
-| 1 | Review example layout | 1 | — | — | [ ] |
-
-**Notebook:** in-scope ✓ · function-list: one-off · cập nhật `01`–`03`: không
-
-## Subtasks
-
-_(none — estimate ≤ 8h)_
+| Scope dự án | `.notebook/01_business-requirements/` | Kiểm tra in-scope |
+| Function list | `.notebook/02_function-list/` | Nhóm Đơn hàng |
+| NFR | `.notebook/03_non-functional-requirements/` | Real-time, tích hợp API |
+| Figma timeline | _(TBD)_ | UI |

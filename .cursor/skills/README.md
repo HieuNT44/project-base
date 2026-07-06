@@ -41,10 +41,14 @@ Org-wide agent skills by workflow phase. **Single source of truth** — edit her
 | Context / prompts | [context-engineering](./context-engineering/SKILL.md) |
 | Using skills | [using-agent-skills](./using-agent-skills/SKILL.md) |
 
+## References
+
+Checklists and gates: [.notebook/00_references/README.md](../../.notebook/00_references/README.md)
+
 ## Full pipeline
 
 ```
-INTAKE → define → plan → ready → design → develop → review → test → deploy → report
+INTAKE → define → plan → ready → design → tdd → develop → review → test → deploy → report
 ```
 
 See [.notebook/README.md](../../.notebook/README.md) · [.workflow-sldc/01_WORKFLOW.md](../../.workflow-sldc/01_WORKFLOW.md)
@@ -55,6 +59,6 @@ See [.notebook/README.md](../../.notebook/README.md) · [.workflow-sldc/01_WORKF
 |-------|-----|
 | Draft task | `planning-and-task-breakdown` → `ready` |
 | `ready` | `design-workflow` → `design/{id}.md` |
-| Design done | `incremental-implementation` · `test-driven-development` → Develop |
+| Design done | `test-driven-development` (RED) → `incremental-implementation` (GREEN) |
 | Develop complete | `code-review-and-quality` → test → deploy |
 | `done` | `report-writer` |

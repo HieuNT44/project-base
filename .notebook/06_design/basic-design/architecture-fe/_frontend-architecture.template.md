@@ -1,9 +1,12 @@
 # Thiết kế kiến trúc Frontend — {Tên dự án}
 
-**Cập nhật:** YYYY-MM-DD  
-**Người phụ trách:** {Tech Lead FE}
+- **Dự án:** {Tên dự án}
+- **Version:** v{X.Y}
+- **Cập nhật:** YYYY-MM-DD
+- **Phạm vi:** {Web SPA / Admin / Mobile web — module chính}
+- **Người phụ trách:** {Tech Lead FE}
 
-> Copy thành `frontend-architecture.md` (cùng thư mục, bỏ prefix `_`). Tham chiếu [system-overview](../system-overview/system-overview.md).
+> Copy thành `frontend-architecture.md` (cùng thư mục, bỏ prefix `_`). Tham chiếu [system-overview](../system-overview/system-overview.md). Ví dụ điền mẫu: [_frontend-architecture.example.md](./_frontend-architecture.example.md).
 
 ---
 
@@ -11,46 +14,51 @@
 
 | Hạng mục | Công nghệ | Phiên bản | Ghi chú |
 |----------|-----------|-----------|---------|
-| **Framework / Library** | {React / Vue / Next.js / …} | | |
+| **Framework** | {React / Vue / Next.js / …} | | |
 | **Ngôn ngữ** | {TypeScript / …} | | |
-| **Quản lý trạng thái** | {Redux Toolkit / Zustand / Context API / …} | | Data giữa các màn hình |
-| **UI / Styling** | {Tailwind CSS / MUI / Ant Design / …} | | Kết hợp Design Token (bổ sung sau) |
-| **Routing** | {React Router / Next App Router / …} | | |
-| **Giao tiếp dữ liệu** | {Axios / Fetch / TanStack Query / …} | | Gọi Backend, Salesforce |
-| **Form** | {react-hook-form / Formik / …} | | |
 | **Build tool** | {Vite / Webpack / …} | | |
+| **UI** | {MUI / Ant Design / …} | | Component chính |
+| **Styling** | {SCSS / Tailwind / MUI sx / …} | | Design token / theme |
+| **Routing** | {React Router / Next App Router / …} | | |
+| **Server state** | {TanStack Query / SWR / …} | | Cache API |
+| **Client state** | {Zustand / Redux Toolkit / Context / …} | | Auth, UI shell |
+| **Form** | {react-hook-form / Formik / …} | | |
+| **HTTP** | {Axios / fetch wrapper / …} | | Instance + interceptors |
+| **i18n** | {react-i18next / …} | | Locale + `Accept-Language` |
 
-**Design Token:** _(tài liệu riêng — bổ sung sau trong `architecture-fe/`)_
+**Design Token:** {Vị trí file theme / token — bổ sung khi chốt UI kit}
 
 ---
 
 ## 2. Cấu trúc thư mục dự án (Project Directory Structure)
 
-Quy ước tổ chức `frontend/` — nhiều dev làm song song, giảm conflict.
-
 ```
 frontend/
-├── src/
-│   ├── components/     # UI dùng chung (Button, Input, Modal…)
-│   ├── pages/          # hoặc app/ — màn hình chính
-│   ├── hooks/          # Custom hooks
-│   ├── services/       # Gọi API Backend / Salesforce
-│   ├── store/          # State toàn cục
-│   ├── utils/          # Helper
-│   ├── types/          # TypeScript types
-│   ├── constants/      # Hằng số, route keys
-│   └── assets/         # Ảnh, font tĩnh
 ├── public/
+├── src/
+│   ├── app/                    # Bootstrap, providers, router root
+│   ├── pages/                  # Route-level views
+│   ├── components/             # UI tái sử dụng (shared)
+│   ├── features/               # {domain}/ — logic + UI theo module
+│   ├── hooks/                  # Custom hooks
+│   ├── services/               # apiClient, *Service
+│   ├── store/                  # Global client state
+│   ├── theme/                  # Theme / design token
+│   ├── types/                  # API & domain types
+│   ├── constants/              # routes, query keys
+│   ├── utils/                  # helpers, error mapper
+│   ├── assets/
+│   └── styles/                 # Global SCSS/CSS
 └── …
 ```
 
-| Thư mục | Trách nhiệm | Quy tắc đặt tên |
-|---------|-------------|-----------------|
-| `components/` | Component tái sử dụng | PascalCase file; 1 component / file |
-| `pages/` hoặc `app/` | Route-level view | Theo route hoặc feature |
-| `hooks/` | Logic tách khỏi UI | Prefix `use` |
-| `services/` | HTTP client, API module | Theo domain (`orderService.ts`) |
-| `store/` | Global state slices | Theo feature module |
+| Thư mục | Trách nhiệm | Quy tắc |
+|---------|-------------|---------|
+| `pages/` | View gắn route | Một page = một route chính; lazy khi cần |
+| `features/` | Module theo domain | `{feature}/components/`, `{feature}/hooks/` |
+| `components/` | Shared UI | PascalCase file; quy ước đặt tên component |
+| `services/` | Gọi API | Không import UI framework |
+| `store/` | Client state | Không trùng server cache (để Query/SWR) |
 
 ---
 
@@ -60,10 +68,11 @@ frontend/
 
 | Bước | Mô tả |
 |------|--------|
-| Đăng nhập | {API endpoint, payload} |
-| Lưu token | {LocalStorage / HttpOnly Cookie / …} |
-| Access / Refresh | {Cơ chế refresh khi hết hạn} |
-| Đăng xuất | {Xóa token, redirect} |
+| Đăng nhập | {Endpoint, payload} |
+| Lưu token | {Memory / localStorage / HttpOnly cookie} |
+| Phiên / context | {Session, tenant, … nếu có} |
+| Refresh | {Cơ chế khi access token hết hạn} |
+| Đăng xuất | {Revoke, clear store, redirect} |
 
 ```mermaid
 sequenceDiagram
@@ -71,38 +80,53 @@ sequenceDiagram
     participant FE as Frontend
     participant BE as Backend
     U->>FE: Submit login
-    FE->>BE: POST /auth/login
-    BE-->>FE: access + refresh token
-    FE->>FE: Lưu token (theo quy ước)
-    FE-->>U: Redirect dashboard
+    FE->>BE: POST {auth endpoint}
+    BE-->>FE: tokens
+    FE->>FE: Lưu auth state
+    FE-->>U: Redirect {home route}
 ```
 
 ### 3.2 Routing & Permission
 
-| Quy tắc | Mô tả |
-|---------|--------|
-| Route public | {/login, /register, …} |
-| Route protected | {Yêu cầu token / role} |
-| Chặn quyền | {Guard component / middleware — chưa login → /login} |
-| Role-based | {Tham chiếu [matrix-design.md](../matrix-design/matrix-design.md)} |
+| Loại route | Path | Guard |
+|------------|------|-------|
+| Public | {/login, …} | {Đã login → redirect} |
+| Protected | {/dashboard, …} | {Chưa login → /login} |
+| Role-based | {/admin/*, …} | {Role — tham chiếu matrix-design} |
+
+- Guard component / middleware: {mô tả ngắn}
+- Ẩn menu theo role — không thay kiểm tra quyền BE.
 
 ### 3.3 Error & Exception Handling
 
 | Tình huống | Cách xử lý |
 |------------|------------|
-| API 4xx/5xx | Toast / modal tập trung; log client |
-| Network offline | Thông báo + retry |
-| 404 / 500 page | Trang lỗi riêng |
-| Validation | Hiển thị lỗi field (form) |
+| API 4xx/5xx | Map theo `error.code` — [api-error-handling.md](../api-error-handling/api-error-handling.md) |
+| `validation_error` | `details[]` → lỗi field trên form |
+| `invalid_token` / 401 | Clear auth → login |
+| `rate_limited` | Toast + `Retry-After` |
+| Network offline | Banner + retry |
+| Uncaught render | Error boundary + fallback page |
+
+**Không** match lỗi bằng full `message` — chỉ dùng `error.code`.
 
 ### 3.4 Loading & Skeleton
 
 | Pattern | Dùng khi |
 |---------|----------|
-| Global loader | Full-page fetch lần đầu |
-| Skeleton | List / card đang tải |
+| Full-page loader | Bootstrap / verify session lần đầu |
+| Skeleton | List, card đang tải |
 | Button loading | Submit form |
-| Suspense / lazy | Code-split route |
+| Lazy + Suspense | Code-split route |
+
+### 3.5 Data fetching convention
+
+| Quy ước | Chi tiết |
+|---------|----------|
+| Query key | {Ví dụ: `['resource', id]`} |
+| Mutation | Invalidate query sau success |
+| Optimistic UI | {Khi nào dùng / không dùng} |
+| Realtime | {Polling / SSE / WebSocket — nếu có} |
 
 ---
 
@@ -112,20 +136,58 @@ sequenceDiagram
 
 | Mục | Quy ước |
 |-----|---------|
-| Đặt tên biến / hàm | camelCase; component PascalCase |
-| ESLint / Prettier | {Link config hoặc mô tả rule chính} |
-| Import order | External → internal → relative |
-| Comment | Tiếng Anh; giải thích *why* khi cần |
+| Component / UI kit | {MUI Box thay div, …} |
+| TypeScript | Không `any`; types API tách file |
+| Lint / format | {ESLint, Prettier — link config} |
+| Styling | {SCSS module, theme, …} |
+| Comment | Tiếng Anh; giải thích *why* |
+| Khác | {Label form, className, …} |
 
 ### 4.2 Performance Optimization
 
 | Kỹ thuật | Áp dụng |
 |----------|---------|
-| Lazy loading route | `React.lazy` / dynamic import |
-| API caching | TanStack Query staleTime / cache |
-| Memoization | `useMemo`, `useCallback` khi đo được re-render |
-| Hình ảnh | WebP, lazy load, kích thước responsive |
-| Bundle | Phân tích `vite-bundle-visualizer` / tương đương |
+| Route lazy load | {Routes cần split} |
+| API cache | {staleTime, cache policy} |
+| Memoization | {Khi nào dùng useMemo/memo} |
+| Media / assets | {Lazy load, format} |
+| Bundle analyze | {Tool / tần suất} |
+
+---
+
+## 5. Tích hợp API & Hợp đồng client
+
+| Mục | Quy ước |
+|-----|---------|
+| Base URL | {env var} |
+| Auth header | {Bearer / cookie / …} |
+| Locale | Header `Accept-Language` |
+| Error envelope | `error.code`, `error.details[]`, `error.request_id` |
+| Log support | Hiển thị `request_id` khi cần debug |
+
+Chi tiết mã lỗi: [api-error-handling.md](../api-error-handling/api-error-handling.md).
+
+---
+
+## 6. Trạng thái triển khai (Implementation Status)
+
+| Hạng mục | Trạng thái | Ghi chú |
+|----------|------------|---------|
+| {Module / page} | Done / Partial / Planned / Pending | |
+| {Interceptor / error map} | | |
+| {i18n} | | |
+
+---
+
+## 7. Đường dẫn code (Implementation Paths)
+
+| Khu vực | Path |
+|---------|------|
+| App bootstrap | `{frontend/src/app/}` |
+| Router | `{path}` |
+| API client | `{path}` |
+| Theme | `{path}` |
+| Env example | `{frontend/.env.example}` |
 
 ---
 
@@ -135,6 +197,7 @@ sequenceDiagram
 |------|-----------|
 | System Overview | [system-overview.md](../system-overview/system-overview.md) |
 | Architecture BE | [backend-architecture.md](../architecture-be/backend-architecture.md) |
+| API error handling | [api-error-handling.md](../api-error-handling/api-error-handling.md) |
 | Matrix design | [matrix-design.md](../matrix-design/matrix-design.md) |
 | NFR | [03_non-functional-requirements](../../../03_non-functional-requirements/catalog.md) |
 

@@ -18,27 +18,31 @@ Task arrives
     │
     ├── Don't know what you want yet? ──────→ interview-me
     ├── Have a rough concept, need variants? → idea-refine
-    ├── New project/feature/change? ──→ spec-driven-development
-    ├── Have a spec, need tasks? ──────→ planning-and-task-breakdown
-    ├── Implementing code? ────────────→ incremental-implementation
-    │   ├── UI work? ─────────────────→ frontend-ui-engineering
-    │   ├── API work? ────────────────→ api-and-interface-design
-    │   ├── Need better context? ─────→ context-engineering
-    │   ├── Need doc-verified code? ───→ source-driven-development
-    │   └── Stakes high / unfamiliar code? ──→ doubt-driven-development
-    ├── Writing/running tests? ────────→ test-driven-development
-    │   └── Browser-based? ───────────→ browser-testing-with-devtools
-    ├── Something broke? ──────────────→ debugging-and-error-recovery
-    ├── Reviewing code? ───────────────→ code-review-and-quality
-    │   ├── Too complex? ─────────────→ code-simplification
-    │   ├── Security concerns? ───────→ security-and-hardening
-    │   └── Performance concerns? ────→ performance-optimization
-    ├── Committing/branching? ─────────→ git-workflow-and-versioning
-    ├── CI/CD pipeline work? ──────────→ ci-cd-and-automation
-    ├── Deprecating/migrating? ────────→ deprecation-and-migration
-    ├── Writing docs/ADRs? ───────────→ documentation-and-adrs
-    ├── Adding logs/metrics/alerts? ───→ observability-and-instrumentation
-    └── Deploying/launching? ─────────→ shipping-and-launch
+    ├── Intake clear, need draft task? ────→ create-task-draft
+    ├── New project/feature/scope change? ─→ spec-driven-development
+    ├── Have draft, need ready tasks? ─────→ planning-and-task-breakdown
+    ├── Have ready, need design handoff? ──→ design-workflow
+    ├── After design, need failing tests? ─→ test-driven-development
+    ├── Implementing code? ────────────────→ incremental-implementation
+    │   ├── UI work? ─────────────────────→ frontend-ui-engineering
+    │   ├── API work? ────────────────────→ api-and-interface-design
+    │   ├── Need better context? ─────────→ context-engineering
+    │   ├── Need doc-verified code? ──────→ source-driven-development
+    │   └── Stakes high / unfamiliar code? → doubt-driven-development
+    ├── Writing/running tests? ────────────→ test-driven-development
+    │   └── Browser-based? ───────────────→ browser-testing-with-devtools
+    ├── Something broke? ──────────────────→ debugging-and-error-recovery
+    ├── Reviewing code? ───────────────────→ code-review-and-quality
+    │   ├── Too complex? ─────────────────→ code-simplification
+    │   ├── Security concerns? ─────────→ security-and-hardening
+    │   └── Performance concerns? ────────→ performance-optimization
+    ├── Committing/branching? ─────────────→ git-workflow-and-versioning
+    ├── CI/CD pipeline work? ──────────────→ ci-cd-and-automation
+    ├── Deprecating/migrating? ────────────→ deprecation-and-migration
+    ├── Writing docs/ADRs? ───────────────→ documentation-and-adrs
+    ├── Adding logs/metrics/alerts? ───────→ observability-and-instrumentation
+    ├── Deploying/launching? ──────────────→ shipping-and-launch
+    └── Task done, need handover report? ──→ report-writer
 ```
 
 ## Core Operating Behaviors
@@ -110,7 +114,7 @@ Your job is surgical precision, not unsolicited renovation.
 
 Every skill includes a verification step. A task is not complete until verification passes. "Seems right" is never sufficient — there must be evidence (passing tests, build output, runtime data).
 
-Per-skill verification is the local check. The project-wide bar that applies to *every* change, regardless of which skill is active, is the Definition of Done: tests pass, no regressions, behavior verified at runtime, docs updated. See `references/definition-of-done.md`. It complements each task's acceptance criteria rather than replacing them.
+Per-skill verification is the local check. The project-wide bar that applies to *every* change, regardless of which skill is active, is the Definition of Done: tests pass, no regressions, behavior verified at runtime, docs updated. See [.notebook/00_references/definition-of-done.md](../../.notebook/00_references/definition-of-done.md). It complements each task's acceptance criteria rather than replacing them.
 
 ## Failure Modes to Avoid
 
@@ -133,31 +137,30 @@ These are the subtle errors that look like productivity but create problems:
 
 2. **Skills are workflows, not suggestions.** Follow the steps in order. Don't skip verification steps.
 
-3. **Multiple skills can apply.** A feature implementation might involve `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `code-review-and-quality` → `code-simplification` → `shipping-and-launch` in sequence.
+3. **Multiple skills can apply.** A feature might involve `interview-me` → `create-task-draft` → `planning-and-task-breakdown` → `design-workflow` → `test-driven-development` → `incremental-implementation` → `code-review-and-quality` → `shipping-and-launch` → `report-writer` in sequence.
 
 4. **When in doubt, start with a spec.** If the task is non-trivial and there's no spec, begin with `spec-driven-development`.
 
 ## Lifecycle Sequence
 
-For a complete feature, the typical skill sequence is:
+For a complete feature in **project-base**, the typical skill sequence is:
 
 ```
-1.  interview-me                → Extract what the user actually wants
-2.  idea-refine                 → Refine vague ideas
-3.  spec-driven-development     → Define what we're building
-4.  planning-and-task-breakdown → Break into verifiable chunks
-5.  context-engineering         → Load the right context
-6.  source-driven-development   → Verify against official docs
-7.  incremental-implementation  → Build slice by slice
-8.  observability-and-instrumentation → Instrument as you build (runs parallel with 7-9, not after)
-9.  doubt-driven-development    → Cross-examine non-trivial decisions in-flight
-10. test-driven-development     → Prove each slice works
+1.  interview-me                → Extract what the user actually wants (if unclear)
+2.  idea-refine                 → Refine vague ideas (optional)
+3.  spec-driven-development     → Update notebook 01–03 catalogs
+4.  create-task-draft           → Package into .backlogs/{id}/draft/
+5.  planning-and-task-breakdown → INVEST, TTD, Todo → ready
+6.  design-workflow             → design/{id}.md + 06_design/ (M+ scope)
+7.  test-driven-development     → RED tests from design (before implement)
+8.  incremental-implementation  → Build slice by slice (GREEN)
+9.  observability-and-instrumentation → Instrument as you build (parallel with 8–10)
+10. doubt-driven-development    → Cross-examine non-trivial decisions in-flight
 11. code-review-and-quality     → Review before merge
-12. code-simplification         → Reduce unnecessary complexity while preserving behavior
+12. code-simplification         → Reduce unnecessary complexity
 13. git-workflow-and-versioning → Clean commit history
-14. documentation-and-adrs      → Document decisions
-15. deprecation-and-migration   → Retire old systems and move users safely when needed
-16. shipping-and-launch         → Deploy safely
+14. shipping-and-launch         → Deploy safely
+15. report-writer               → Delivery report in 05_reports/
 ```
 
 Not every task needs every skill. A bug fix might only need: `debugging-and-error-recovery` → `test-driven-development` → `code-review-and-quality`.
@@ -168,15 +171,17 @@ Not every task needs every skill. A bug fix might only need: `debugging-and-erro
 |-------|-------|-----------------|
 | Define | interview-me | Surface what the user actually wants before any plan, spec, or code exists |
 | Define | idea-refine | Refine ideas through structured divergent and convergent thinking |
-| Define | spec-driven-development | Requirements and acceptance criteria before code |
-| Plan | planning-and-task-breakdown | Decompose into small, verifiable tasks |
+| Define | create-task-draft | Package clarified intake into `.backlogs/{id}/draft/` |
+| Define | spec-driven-development | Notebook catalogs 01–03 before code |
+| Plan | planning-and-task-breakdown | INVEST, TTD, Todo → `ready` |
+| Design | design-workflow | `design/{id}.md` + `06_design/` handoff for Code |
+| TDD | test-driven-development | Failing test first (RED), then make it pass |
 | Build | incremental-implementation | Thin vertical slices, test each before expanding |
 | Build | source-driven-development | Verify against official docs before implementing |
 | Build | doubt-driven-development | Adversarial fresh-context review of every non-trivial decision |
 | Build | context-engineering | Right context at the right time |
 | Build | frontend-ui-engineering | Production-quality UI with accessibility |
 | Build | api-and-interface-design | Stable interfaces with clear contracts |
-| Verify | test-driven-development | Failing test first, then make it pass |
 | Verify | browser-testing-with-devtools | Chrome DevTools MCP for runtime verification |
 | Verify | debugging-and-error-recovery | Reproduce → localize → fix → guard |
 | Review | code-review-and-quality | Five-axis review with quality gates |
@@ -189,3 +194,6 @@ Not every task needs every skill. A bug fix might only need: `debugging-and-erro
 | Ship | documentation-and-adrs | Document the why, not just the what |
 | Ship | observability-and-instrumentation | Structured logs, RED metrics, traces, symptom-based alerts |
 | Ship | shipping-and-launch | Pre-launch checklist, monitoring, rollback plan |
+| Report | report-writer | Task delivery / progress reports in `05_reports/` |
+
+Reference checklists: [.notebook/00_references/README.md](../../.notebook/00_references/README.md)
